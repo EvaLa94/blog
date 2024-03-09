@@ -1,15 +1,26 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.views.generic import ListView, DetailView
 from .models import Article
+from .forms import ArticleForm
 # Create your views here.
 
 
-def index(request):
-    articles_list = Article.objects.all()
-    context = {'articles_list': articles_list}
-    return render(request, 'index.html', context)
+class ArticleListView(ListView):
+    model = Article
+    template_name = "article_list.html"
 
 
-def article_details(request, article_id):
-    article = get_object_or_404(Article, id=article_id)
-    context = {'article': article}
-    return render(request, 'article.html', context)
+class ArticleDetailView(DetailView):
+    model = Article
+    template_name = "article_detail.html"
+
+
+def add_article(request):
+    form = ArticleForm(request.POST or None)
+    context = {
+        "form": form
+    }
+    if form.is_valid():
+        article = form.save()
+        return redirect(article.get_absolute_url())
+    return render(request, 'add_article.html', context)
