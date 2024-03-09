@@ -2,7 +2,8 @@
 <ul>
     {% for article in object_list %}
     <li>
-        <a href="{% url 'article:article_detail' article.slug %}">{{ article.title }}</a>
+        <a href="{% url 'category:article_detail' category_slug=article.category.slug article_slug=article.slug %}">
+            {{ article.title }}</a>
     </li>
     {% endfor %}
 </ul>

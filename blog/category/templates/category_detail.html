@@ -1,0 +1,13 @@
+<h1>Category: {{object.name}} -- {{object.id}}</h1>
+<h2>Articles:</h2>
+<p>{{object.content}}</p>
+<ul>
+    {% for article in articles %}
+    <li>
+        <a href="{% url 'category:article_detail' category_slug=object.slug article_slug=article.slug %}">
+            {{ article.title }}
+        </a>
+    </li>
+    <p>{{ article.content }}</p>
+    {% endfor %}
+</ul>
