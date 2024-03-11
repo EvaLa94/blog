@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+
 {% if object_list %}
 <h1>Categories:</h1>
 <ul>
@@ -10,3 +14,5 @@
 {% else %}
 <p>No categories are available.</p>
 {% endif %}
+
+{% endblock content %}
