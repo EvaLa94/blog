@@ -3,14 +3,19 @@
 {% block content %}
 
 {% if object_list %}
-<h1>Categories:</h1>
-<ul>
+<h1 class="title">Categories:</h1>
+<div class="category-container">
     {% for category in object_list %}
-    <li>
-        <a href="{% url 'category:category_detail' category.slug %}">{{ category.name }}</a>
-    </li>
+
+    <a href="{% url 'category:category_detail' category.slug %}" class="category-item">
+        <div>
+            <p> {{ category.name }}</p>
+        </div>
+
+    </a>
+
     {% endfor %}
-</ul>
+</div>
 {% else %}
 <p>No categories are available.</p>
 {% endif %}

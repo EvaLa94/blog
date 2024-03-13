@@ -1,12 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<h1>{{object.title}} -- ID: {{object.id}}</h1>
-<p>Category: {{object.category}}</p>
-<p>Published by: {{object.author}} on {{object.publish_date}}</p>
-<p>Last updated on: {{object.update_date}}</p>
-<h2>Content:</h2>
+<p class="category-info">Category: {{object.category}}</p>
+<h1 class="title">{{object.title}}</h1>
+<p><span>Published by: {{object.author}} </span><span>on
+        {{object.publish_date}}</span></p>
 <p>{{object.content}}</p>
 
 {% endblock content %}

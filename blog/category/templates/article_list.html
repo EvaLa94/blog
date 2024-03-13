@@ -1,19 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<h1 class="title">All articles:</h1>
+{% include "article_list_partial.html" with object_list=object_list%}
 
-<h1>Articles:</h1>
-{% if object_list %}
-<ul>
-    {% for article in object_list %}
-    <li>
-        <a href="{% url 'category:article_detail' category_slug=article.category.slug article_slug=article.slug %}">
-            {{ article.title }}</a>
-    </li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>No articles are available.</p>
-{% endif %}
-
-{% endblock content %}
+{% endblock %}

@@ -18,7 +18,7 @@ class CategoryDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         category = self.get_object()
-        context['articles'] = Article.objects.filter(category=category)
+        context['object_list'] = Article.objects.filter(category=category)
         return context
 
 

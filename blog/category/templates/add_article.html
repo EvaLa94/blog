@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>Add a new article</h1>
+<h1 class="title">Add a new article</h1>
 <form action="{% url 'category:add_article' %}" method="POST">
     {% csrf_token %}
     <form action='.' method="POST">

@@ -1,0 +1,20 @@
+{% if object_list %}
+
+<div class="article-container">
+    {% for article in object_list %}
+    <div class="article-item">
+        <a href="{% url 'category:article_detail' category_slug=article.category.slug article_slug=article.slug %}">
+            <h2 class="article-title">{{ article.title }}</h2>
+        </a>
+        <p class="author-info">by {{ article.author }}</p>
+        <p>{{ article.content|slice:"0:50" }}...</p>
+        <p class="date-info">{{ article.publish_date }}</p>
+        </a>
+    </div>
+
+    {% endfor %}
+</div>
+
+{% else %}
+<p>No articles are available.</p>
+{% endif %}

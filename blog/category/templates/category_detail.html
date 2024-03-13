@@ -2,18 +2,8 @@
 
 {% block content %}
 
-<h1>Category: {{object.name}} -- ID: {{object.id}}</h1>
-<h2>Articles:</h2>
-<p>{{object.content}}</p>
-<ul>
-    {% for article in articles %}
-    <li>
-        <a href="{% url 'category:article_detail' category_slug=object.slug article_slug=article.slug %}">
-            {{ article.title }}
-        </a>
-    </li>
-    <p>{{ article.content }}</p>
-    {% endfor %}
-</ul>
+<h1 class="title">{{object.name}}'s articles</h1>
+
+{% include "article_list_partial.html" with object_list=object_list%}
 
 {% endblock content %}

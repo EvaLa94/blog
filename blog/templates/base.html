@@ -6,19 +6,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="{% static 'category/style/style.css' %}">
 </head>
 
 <body>
 
     <nav>
-        <a href="{% url 'category:category_list' %}">Categories</a>
-        <a href="{% url 'category:article_list' %}">Articles</a>
-        <a href="{% url 'category:add_article' %}">New Article</a>
+        <div class="nav-links">
+            <a href="{% url 'category:category_list' %}">Categories</a>
+            <a href="{% url 'category:article_list' %}">Articles</a>
+            <a href="{% url 'category:add_article' %}">New Article</a>
+        </div>
+        <div>
+            <p>Login</p>
+        </div>
     </nav>
 
-    {% block content %}
-    {% endblock content %}
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>footer content</p>
+        </div>
+    </footer>
 </body>
 
 </html>
